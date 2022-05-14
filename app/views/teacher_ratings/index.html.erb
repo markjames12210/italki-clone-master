@@ -1,0 +1,32 @@
+<h1>This is the Teachers' Rating Page</h1>
+
+<div>
+  Average Teacher Rating: <%= @average_teacher_rating %>
+</div>
+  <h2>Please Click on the name of a teacher below to see their comments and ratings page</h2>
+  <p class="links"><%= link_to "Or leave a teacher a rating here...", new_teacher_rating_path %></p></p>
+  <ul class="teacher-links links"> 
+
+ <% @teacher_ratings.each do |teacher| %>
+        <%
+=begin%>
+ "/teacher_ratings/#{teacher.id}" 
+ language_teacher_path(teacher.id)
+<%
+=end%>
+        <li><%= link_to teacher.language_teacher.name, teacher %></li>
+        <%
+=begin%>
+ <li><%= link_to teacher.language_teacher.name, teacher_rating_path  %></li> 
+<%
+=end%>
+       <% end %>       
+</ul>
+
+
+
+
+
+
+   
+

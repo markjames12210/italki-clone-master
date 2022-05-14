@@ -1,0 +1,17 @@
+<h1>This is the New Lessons Form</h1>
+
+<h2>Please select your name and a teacher from the pull down list below:</h2>
+
+
+<%= form_for(@lesson) do |f| %>
+  <%= f.label :hyperglot %>
+  <%= f.collection_select :hyperglot_id, Hyperglot.all, :id, :name %><br><br>
+
+  <%= f.label :Teacher %>
+  <%= f.collection_select :language_teacher_id, LanguageTeacher.all, :id, :name %><br><br>
+  
+  <%= f.label :Lesson_date %>:<%= f.text_field :lesson_date %><br><br>
+
+  <%= f.submit %>
+
+<% end %>

@@ -1,0 +1,31 @@
+<h1>This is the Teacher Rating NEW Page</h1>
+
+
+
+<h2>Please choose a teacher from this pulldown list:</h2>
+
+<% if @teacher_rating.errors.any? %>
+  <div id="error_explanation">
+    <h2>There were some errors:</h2>
+    <ul>
+      <% @teacher_rating.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_for(@teacher_rating) do |f| %>
+  <%= f.collection_select :language_teacher_id, LanguageTeacher.all, :id, :name %><br>
+<h2>And select your name from this pulldown list:</h2> 
+<%= f.collection_select :hyperglot_id, Hyperglot.all, :id, :name %><br>
+<h3>Leave your comments about this teacher here:</h3>
+<%= f.label :comments %>: <%= f.text_field :comments %>
+
+<h3>And lastly, leave a rating from 1 to 5:<h3>
+<%= f.label :rating %> <%= f.text_field :rating %><br><br>
+
+<%= f.submit %>
+
+  <% end %>
+
